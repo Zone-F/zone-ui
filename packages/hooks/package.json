@@ -1,12 +1,8 @@
 {
-  "name": "@zone-ui/hooks",
+  "name": "@much-more/hooks",
   "version": "1.0.0",
   "description": "hooks",
   "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC"
 }
