@@ -2,14 +2,14 @@
 layout: home
 
 hero:
-  name: much-more-design
+  name: zone-ui-design
   text: 前端组件库
-  tagline: 基于 element-ui 、 element-plus 、 ant-design 框架进行功能扩展，提供更接近业务场景的组件。
+  tagline: 基于 element-ui  、 ant-design 框架进行功能扩展，提供更接近业务场景的组件。
   image:
-    src: /images/much-more-icon.svg
+    src: /images/zone-ui-icon.png
   actions:
     - theme: brand
-      text:  vue3-快速开始
+      text:  react-快速开始
       link: /zh-CN/guide/elp-install
     - theme: brand
       text:  vue2-快速开始
