@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text:  react-快速开始
-      link: /zh-CN/guide/elp-install
+      link: /zh-CN/guide/antd-install
     - theme: brand
       text:  vue2-快速开始
       link: /zh-CN/guide/elu-install

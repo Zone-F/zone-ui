@@ -3,6 +3,7 @@ import nav from './configs/nav'
 import sidebar from './configs/sidebar'
 import footer from './configs/footer'
 // import { mdPlugin } from './configs/plugins'
+const base = '/'
 
 export default defineConfig({
   title: "zone-ui",

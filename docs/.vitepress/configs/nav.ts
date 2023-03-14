@@ -6,7 +6,7 @@ export default [
   },
   {
     text: "element-ui",
-    link: "/zh-CN/components/element-ui/Data/table",
+    link: "/zh-CN/components/element-ui/通用/button",
     activeMatch: "^/zh-CN/components/element-ui",
   },
   {

@@ -1,4 +1,4 @@
-import elementPlusSideBar from "../pages/element-plus.json"
+// import elementPlusSideBar from "../pages/element-plus.json"
 import elementUiSideBar from "../pages/element-ui.json"
 import antDesignSideBar from "../pages/ant-design.json"
 
@@ -20,12 +20,12 @@ export default {
       "collapsed": false,
       items: [
         { text: 'docs项目', link: '/zh-CN/guide/docs-dev' },
-        { text: 'element-plus', link: '/zh-CN/guide/elp-dev' },
+        { text: 'ant-design', link: '/zh-CN/guide/antd-dev' },
         { text: 'element-ui', link: '/zh-CN/guide/elu-dev' },
       ]
     }
   ],
-  '/zh-CN/components/element-plus': elementPlusSideBar,
+  // '/zh-CN/components/element-plus': elementPlusSideBar,
   '/zh-CN/components/element-ui': elementUiSideBar,
   '/zh-CN/components/ant-design': antDesignSideBar
 }
