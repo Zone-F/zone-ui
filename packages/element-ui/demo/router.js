@@ -10,11 +10,11 @@ const router = new VueRouter({
     //   component: () => import('./table/table-custom-columns.vue'),
     //   name: 'TableCustomColumns'
     // },
-    // {
-    //   path: '/data-picker-shortcuts',
-    //   component: () => import('./data-picker/data-picker-shortcuts.vue'),
-    //   name: 'DataPickerShortcuts'
-    // },
+    {
+      path: '/zone-button',
+      component: () => import('./button/zone-button.vue'),
+      name: 'DataPickerShortcuts'
+    },
     {
       path: '/menu-voice-cloud',
       component: () => import('./menu/menu-voice-cloud.vue'),

@@ -1,6 +1,6 @@
 {
   "name": "@zone-ui/zone-element-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "二次封装 element-ui",
   "main": "dist/zone-element-ui.cjs.js",
   "module": "dist/zone-element-ui.es.js",
