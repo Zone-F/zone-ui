@@ -62,6 +62,6 @@
 ```html
 <vp-demo
     demo-height="270px"
-    source-code="element-plus:::table/table-custom-columns"
+    source-code="element-ui:::button/zone-button"
 />
 ```
