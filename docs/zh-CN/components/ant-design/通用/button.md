@@ -8,7 +8,7 @@
 
 <vp-demo
 demo-height="270px"
-source-code="ant-desigin:::button/button-demo"
+source-code="ant-design:::button/button-demo"
 />
 
 ## Table 属性

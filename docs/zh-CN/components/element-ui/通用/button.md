@@ -9,7 +9,7 @@
 <vp-demo
     demo-height="270px"
     iframeSrc="menu-voice-cloud"
-    source-code="element-ui:::menu/menu-voice-cloud"
+    source-code="element-ui:::button/zone-button"
 />
 
 ## Table 属性
