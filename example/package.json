@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "@zone98f/zone-ui":"https://github.com/Zone-F/zone-ui/tree/main/packages/ant-design"
+  },
   "author": "",
   "license": "ISC"
 }

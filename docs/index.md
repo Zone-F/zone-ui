@@ -14,9 +14,9 @@ hero:
     - theme: brand
       text:  vue2-快速开始
       link: /zh-CN/guide/elu-install
-    - theme: alt
-      text:  掘金主页
-      link: https://juejin.cn/user/3544481218962183
+    # - theme: alt
+    #   text:  掘金主页
+    #   link: 
 
 features:
   - icon: ⚡️

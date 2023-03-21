@@ -1,7 +1,7 @@
 export default [
   {
     text: "指南",
-    link: "/zh-CN/guide/elp-install",
+    link: "/zh-CN/guide/antd-dev",
     activeMatch: "^/zh-CN/guide",
   },
   {

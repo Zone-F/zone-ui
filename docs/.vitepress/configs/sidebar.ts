@@ -9,7 +9,6 @@ export default {
       "collapsible": true,
       "collapsed": false,
       items: [
-        { text: 'vc-element-plus', link: '/zh-CN/guide/elp-install' },
         { text: 'vc-element-ui', link: '/zh-CN/guide/elu-install' },
         { text: 'vc-ant-design', link: '/zh-CN/guide/antd-install' },
       ]
