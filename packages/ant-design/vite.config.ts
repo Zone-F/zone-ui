@@ -30,5 +30,12 @@ export default defineConfig(async ({ command, mode }) => {
         },
       ],
     },
+    css:{
+      preprocessorOptions:{
+        less:{
+          javascriptEnabled:true
+        }
+      }
+    }
   };
 });

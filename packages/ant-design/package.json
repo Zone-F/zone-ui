@@ -1,7 +1,7 @@
 {
   "name": "@zone98f/zone-ui",
   "version": "0.0.1",
-  "main": "dist/zone-ant-design.cjs.js",
+  "main": "dist/zone-ant-design.js",
   "module": "dist/zone-ant-design.es.js",
   "scripts": {
     "dev": "vite",
@@ -12,9 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "antd": "^4.21.7",
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "table-render": "^2.0.14"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

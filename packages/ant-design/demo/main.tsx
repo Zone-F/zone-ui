@@ -6,15 +6,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ButtonDemo from './button/button-demo';
+import XDLKTable from './table/table';
+import Menu from "./layouts/menu";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ButtonDemo />,
+    element: <Menu />,
   },
   {
     path: "/button-demo",
     element: <ButtonDemo />,
+  },
+  {
+    path: "/xdlk-table",
+    element: <XDLKTable />,
   }
 ]);
 
