@@ -3,6 +3,7 @@ import TableRender from 'table-render';
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import ColumnSetting from './components/ColumnSetting';
+import {Container} from './Store/Provide';
 // const XDLKTable = () => {
 //   return <Button type="primary">vc-ant-design的按钮</Button>
 // }
@@ -61,23 +62,25 @@ const XDLKTable = () => {
   };
 
   return (
-    <TableRender
-      search={{ schema }}
-      request={api}
-      columns={columns}
-      title='最简表格'
-      toolbarRender={ 
-        <>
-          <Button>查看日志</Button>
-          <Button>导出数据</Button>
-          <Button type='primary'>
-            <PlusOutlined />
-            新增
-          </Button>
-          <ColumnSetting />
-        </>
-      }
-    />
+    <Container initValue={props}>
+      <TableRender
+        search={{ schema }}
+        request={api}
+        columns={columns}
+        title='最简表格'
+        toolbarRender={ 
+          <>
+            <Button>查看日志</Button>
+            <Button>导出数据</Button>
+            <Button type='primary'>
+              <PlusOutlined />
+              新增
+            </Button>
+            <ColumnSetting />
+          </>
+        }
+      />
+    </Container>
   );
 }
 

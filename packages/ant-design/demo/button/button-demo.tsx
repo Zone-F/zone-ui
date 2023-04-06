@@ -1,5 +1,6 @@
 import React from 'react'
-import { ZoneButton } from '../../dist/zone-ant-design'
+// import { ZoneButton } from '../../dist/zone-ant-design'
+import  {ZoneButton}  from '../../components/button'
 
 const ButtonDemo = () => {
   return <>

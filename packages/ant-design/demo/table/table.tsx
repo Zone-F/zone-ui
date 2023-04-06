@@ -1,5 +1,5 @@
 import React from 'react'
-// import { ZoneButton } from '../../dist/zone-ant-design'
+// import { XDLKTable } from '../../dist/zone-ant-design'
 import  {XDLKTable}  from '../../components/table'
 
 const table = () => {
