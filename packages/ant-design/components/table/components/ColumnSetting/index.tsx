@@ -1,73 +1,94 @@
 import { SettingOutlined, AudioOutlined } from '@ant-design/icons';
-import type { TableColumnType } from 'antd';
+import { Button, Divider, Space, TableColumnType } from 'antd';
+import type { ProColumnsType } from 'table-render';
 import { Popover, Input, Tooltip } from 'antd';
-import React,{ useState } from 'react';
+import classNames from 'classNames'
+import React, { useContext, useState } from 'react';
+import { TableContext } from '../../Store/Provide';
 const { Search } = Input
 
-type Search = {
-  placeholder?: string
-}
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
-  checkable?: boolean;
-  checkedReset?: boolean;
-  search?: Search
 };
 
-// 列表项
-const SettingListItem: React.FC<{
-  list: (TableColumnType<any> & { index?: number })[];
+const SetBoxListList: React.FC<{
+  columnKey: string | number;
   className?: string;
-  title: string;
-  draggable: boolean;
-  checkable: boolean;
-  showTitle?: boolean;
-  listHeight?: number;
-}> = () => {
+  title?: string
+}> = ({ columnKey, title, className }) => {
   return (
-    <div></div>
+    <div>{title}</div>
   )
 }
-// 列表
-const SettingList: React.FC<{
-  localColumns: (ProColumns<any> & { index?: number })[];
-  className?: string;
-  draggable: boolean;
-  checkable: boolean;
-  listsHeight?: number;
-}> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
+const SetBoxList: React.FC<{
+  localColumns: (ProColumnsType<{}> & { index?: number })[];
+}> = ({ localColumns }) => {
   return (
-    <SettingItem />
-  )
-}
+    <>
+      {localColumns.map(
+        list =>
+          <SetBoxListList
+            columnKey={list.columnKey}
+            title={list.title}
+            key={list.columnKey} />
+      )}
+      <Divider></Divider>
+      <Space direction="vertical">
+        <Space wrap>
+          <Button size='small'>取消</Button>
+          <Button type="primary" size='small'>
+            确定
+          </Button>
+        </Space>
+      </Space>
+    </>
+  );
+};
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
+
+  const counter = useContext(TableContext);
+  const localColumns: TableColumnType<T> &
+    {
+      index?: number;
+      fixed?: any;
+      key?: any;
+    }[] = props.columns;
+  const { columnsMap, setColumnsMap } = counter;
+  console.log('localColumns', localColumns);
+  console.log('columnsMap', columnsMap);
+
+  function handleOpenChange(state: boolean) { setPopoverShow(state) }
+  const [popoverShow, setPopoverShow] = useState(false);
+
+  const renderColmns = [JSON.parse(JSON.stringify(localColumns))]
+
   /**
    * 搜索函数
    */
   function onSearch() { }
-  function handleOpenChange(state) { 
-    setPopoverShow(state)
-  }
-  const [popoverShow, setPopoverShow] = useState(false);
 
   return (
     <Popover
       arrow={false}
       title={
         <Search
-          placeholder={props?.search?.placeholder || '请输入列名'}
+          placeholder='搜索'
           onSearch={onSearch}
         />
       }
-      content={<a></a>}
+      content={
+        <SetBoxList
+          localColumns={localColumns}
+        />
+      }
       trigger="click"
       placement="bottomRight"
       open={popoverShow}
       onOpenChange={handleOpenChange}
     >
       <Tooltip title="列设置">
-        <SettingOutlined onClick={()=>setPopoverShow(!popoverShow)}/>
+        <SettingOutlined onClick={() => setPopoverShow(!popoverShow)} />
       </Tooltip>
     </Popover>
   )

@@ -15,6 +15,7 @@
     "@ant-design/icons": "^5.0.1",
     "antd": "^5.4.0",
     "classnames": "^2.3.2",
+    "rc-util": "^5.29.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "table-render": "^2.0.14"
