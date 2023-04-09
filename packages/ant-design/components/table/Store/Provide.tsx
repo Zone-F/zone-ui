@@ -1,21 +1,18 @@
-import { createContext, useCallback, useEffect, useMemo, useRef } from "react";
+import { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ColumnsState, ColumnsStateType, ProTableProps } from "../typing";
 import { genColumnKey } from '../utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProColumnsType, TableRenderProps } from "table-render";
-import { ColumnsType } from "antd/es/table";
+import { ColumnGroupType, ColumnsType } from "antd/es/table";
 
 const persistenceType = 'localStorage';
-export type ProTableColumn<T> = ColumnsState & ProColumnsType<{}>;
-export type UseContainerProps<T = any>  = {
-  columns?: ProTableColumn<T>[];
-  // columnsState?: ProTableProps<any, any, any>['columnsState'];
+export type ProTableColumn<T> = ColumnsStateType & ProColumnsType<{}> & ColumnGroupType<'dataIndex'>;
+export type UseContainerProps<T = any> = {
   columnsState?: ColumnsStateType;
-};
+} & TableRenderProps;
 
 function useContainer(props: UseContainerProps<any>) {
-  console.log('props',props);
-  
+  console.log('props', props);
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     if (props?.columnsState?.defaultValue) return props.columnsState.defaultValue;
@@ -60,7 +57,6 @@ function useContainer(props: UseContainerProps<any>) {
       onChange: props.columnsState?.onChange,
     },
   );
-  console.log('columnsMap',columnsMap);
   
   /**  配置或列更改时对columnsMap重新赋值 */
   useEffect(() => {
@@ -113,7 +109,7 @@ function useContainer(props: UseContainerProps<any>) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.columnsState?.persistenceKey, columnsMap]);
 
-  const renderValue = { columnsMap, setColumnsMap, defaultColumnKeyMap };
+  const renderValue = { columnsMap, setColumnsMap, proColumns };
 
   return renderValue;
 }
@@ -125,13 +121,12 @@ const TableContext = createContext<ContainerReturnType>({} as any);
 export type ContainerType = typeof useContainer;
 
 const Container: React.FC<{
-  // TODO:: initValue: UseContainerProps<any>;
-  initValue: any;
+  initValue: UseContainerProps<any>;
   children: React.ReactNode;
 }> = (props) => {
   const value = useContainer(props.initValue);
-  console.log('value',value);
-  
+  console.log('value', value);
+
   return (
     <TableContext.Provider value={value}>{props.children}</TableContext.Provider>
   );

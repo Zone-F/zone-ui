@@ -31,6 +31,7 @@ const schema = {
 const columns = [
   {
     title: '标题',
+    key: 'title',
     dataIndex: 'title',
   },
   {
@@ -42,6 +43,7 @@ const columns = [
   {
     title: '操作',
     key: 'operation',
+    dataIndex: 'operation',
     render: (row, record) => <a onClick={() => alert(row.title)}>编辑</a>,
   }
 ];
