@@ -16,6 +16,10 @@ function useContainer(props: UseContainerProps<any>) {
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     if (props?.columnsState?.defaultValue) return props.columnsState.defaultValue;
+    
+    const storageValue = window[persistenceType]?.getItem(props.columnsState?.persistenceKey);
+    if(storageValue) return;
+
     const columnKeyMap = {};
     props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
       const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
@@ -57,7 +61,7 @@ function useContainer(props: UseContainerProps<any>) {
       onChange: props.columnsState?.onChange,
     },
   );
-  
+
   /**  配置或列更改时对columnsMap重新赋值 */
   useEffect(() => {
     const { persistenceKey } = props.columnsState || {};
@@ -109,7 +113,7 @@ function useContainer(props: UseContainerProps<any>) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.columnsState?.persistenceKey, columnsMap]);
 
-  const renderValue = { columnsMap, setColumnsMap, proColumns };
+  const renderValue = { columnsMap, setColumnsMap };
 
   return renderValue;
 }

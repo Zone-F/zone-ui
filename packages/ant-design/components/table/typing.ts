@@ -5,11 +5,7 @@ export type ColumnsState = {
   show?: boolean;
   fixed?: "right" | "left" | undefined;
   order?: number;
-  disable?:
-  | boolean
-  | {
-    checkbox: boolean;
-  };
+  disable?: boolean
 };
 
 export type ColumnsStateType = {
