@@ -3,6 +3,8 @@ import type { TableRenderProps } from "table-render";
 
 export type ColumnsState = {
   show?: boolean;
+  title?: string;
+  key:string;
   fixed?: "right" | "left" | undefined;
   order?: number;
   disable?: boolean

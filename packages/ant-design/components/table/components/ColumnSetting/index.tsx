@@ -3,137 +3,85 @@ import { Button, Checkbox, Divider, Space, Table, TableColumnType } from 'antd';
 import type { ProColumnsType } from 'table-render';
 import { Popover, Input, Tooltip } from 'antd';
 import classNames from 'classNames'
-import React, { memo, useContext, useMemo, useState } from 'react';
+import React, { memo, useContext, useEffect, useMemo, useState } from 'react';
 import { TableContext } from '../../Store/Provide';
 import { ColumnsState } from '../../typing';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-import { useEffect } from 'react';
-import Item from 'antd/es/list/Item';
 const { Search } = Input
 
-type ColumnSettingProps<T = any> = {
-  columns: TableColumnType<T>[];
-};
 
-const SetBoxListItem: React.FC<{ title: string } & ColumnsState> = (props) => {
-  // const [checked, setChecked] = useState(props.show);
-  // const onChange = (e: CheckboxChangeEvent) => setChecked(e.target.checked);
-  // onChange={onChange}
-  // console.log('title',props.title ,'checked',checked,'props.show',props.show);
-  console.log('title', props.title, 'props.show', props.show);
+type SetBoxListItem = {
+  column: ColumnsState,
+  updateColumnsMap: (state: ColumnsState) => void
+}
+const SetBoxListItem: React.FC<SetBoxListItem> = ({ column, updateColumnsMap }) => {
+  const [checked, setChecked] = useState(column.show);
+
+  const onChange = (e: CheckboxChangeEvent) => {
+    setChecked(e.target.checked);
+    updateColumnsMap({ ...column, show: e.target.checked })
+  };
+
   return (
     <div>
       <Checkbox
-        defaultChecked={props.show}
-        disabled={props.disable}>
-        {props.title}
+        checked={checked}
+        onChange={onChange}
+        disabled={column.disable}>
+        {column.title}
       </Checkbox>
     </div>
   )
 }
+// 列表
+const SetBoxList: React.FC<{ searchKey: string }> = ({ searchKey }) => {
+  const { columnsMap, setColumnsMap } = useContext(TableContext);
+  const renderColumns: ColumnsState[] = useMemo(() => {
+    let columns = []
+    for (const iterator in columnsMap) {
+      columns.push(columnsMap[iterator])
+    }
+    return columns.filter((column) => column.title.includes(searchKey))
+  }, [columnsMap, searchKey]);
 
-const SetBoxList: React.FC<{ columns: TableColumnType<any>[] }> = (props) => {
-
-  // const renderColumns: TableColumnType<string>[] = useMemo(() => {
-  //   let columns = JSON.parse(JSON.stringify(props.columns))
-  //   return columns.map(column => {
-  //     const key = column?.key || column?.dataIndex
-  //     return {
-  //       title: column.title,
-  //       ...columnsMap[key]
-  //     }
-  //   })
-  // }, [props.columns, columnsMap]);
   // let columns = JSON.parse(JSON.stringify(props.columns))
 
+  /**
+   * 更新列表
+   * @param data 
+   */
+  function updateColumnsMap(data: ColumnsState) {
+    let newMap = { ...columnsMap, [data.key]: data }
+    setColumnsMap(newMap)
+  }
 
-  // console.log('SetBoxList Update');
-  // console.log('renderColumns', renderColumns);
-  // function itemChange(key,show){
-  //   console.log('1',key);
-  //   console.log('1',renderColumns);
-  //   renderColumns.find(item=>item.title === key).show = !show
-  //   setRenderColumns(renderColumns)
-  // renderColumns[key].show = !show
-  // }
-  // <SetBoxListItem {...column} key={column.title as string} />
   return (
     <>
-      {props.columns?.map(column =>
-        <>
-          <div>
-            <Checkbox
-            checked={column.show}
-              defaultChecked={column.show}
-              disabled={column.disable}
-            >
-              {column?.title}
-            </Checkbox>
-          </div>
-        </>
+      {renderColumns?.map(
+        column =>
+          <SetBoxListItem column={column} key={column.key} updateColumnsMap={updateColumnsMap} />
       )}
     </>
   )
 }
-console.log('ColumnSetting Update ---');
+// console.log('ColumnSetting Update ---');
 
-const SetBoxContent: React.FC<{
-  columns: TableColumnType<any>[]
-  handleOpenChange: (state: boolean) => void
-}> = ({ columns, handleOpenChange }) => {
-  const { columnsMap } = useContext(TableContext);
-
-  let proColumns = JSON.parse(JSON.stringify(columns));
-  proColumns = columns.map(column => {
-    const key = column?.key || column?.dataIndex
-    return {
-      title: column.title,
-      date: Date.now(),
-      ...columnsMap[key]
-    }
-  })
-  const [renderColumns, setRenderColumns] = useState<{ title: string } & ColumnsState[]>(proColumns);
-  function handleCancle() {
-    console.log('proColumns1',proColumns);
-
-    handleOpenChange(false);
-    proColumns = columns.map(column => {
-      const key = column?.key || column?.dataIndex
-      return {
-        title: column.title,
-        date: Date.now(),
-        ...columnsMap[key]
-      }
-    })
-    console.log('proColumns',proColumns);
-    setRenderColumns(proColumns)
-  }
-  return (
-    <>
-      <SetBoxList columns={renderColumns} />
-      <Divider></Divider>
-      <Space direction="vertical">
-        <Space wrap>
-          <Button size='small' onClick={() => handleCancle()}>取消</Button>
-          <Button type="primary" size='small'>
-            确定
-          </Button>
-        </Space>
-      </Space>
-    </>
-  );
-};
-
-function ColumnSetting<T>(props: ColumnSettingProps<T>) {
+function ColumnSetting() {
 
   function handleOpenChange(state: boolean) { setPopoverShow(state) }
   const [popoverShow, setPopoverShow] = useState(false);
 
+  // 搜索框
+  const [searchKey, setSearchKey] = useState('');
+
   /**
    * 搜索函数
+   * @param value 
    */
-  function onSearch() { }
-
+  function onSearch(value: string) {
+    setSearchKey(value)
+  }
+  // 搜索框end
   return (
     <Popover
       arrow={false}
@@ -143,9 +91,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           onSearch={onSearch}
         />
       }
-      content={
-        <SetBoxContent columns={props.columns} handleOpenChange={handleOpenChange} />
-      }
+      content={<SetBoxList searchKey={searchKey} />}
       trigger="click"
       placement="bottomRight"
       open={popoverShow}

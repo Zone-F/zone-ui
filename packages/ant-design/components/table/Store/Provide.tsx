@@ -12,7 +12,7 @@ export type UseContainerProps<T = any> = {
 } & TableRenderProps;
 
 function useContainer(props: UseContainerProps<any>) {
-  console.log('props', props);
+  // console.log('props', props);
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     if (props?.columnsState?.defaultValue) return props.columnsState.defaultValue;
@@ -21,13 +21,15 @@ function useContainer(props: UseContainerProps<any>) {
     if(storageValue) return;
 
     const columnKeyMap = {};
-    props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
+    props.columns?.forEach(({ title,key, dataIndex, fixed, disable }, index) => {      
       const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
       if (columnKey) {
         columnKeyMap[columnKey] = {
-          show: true,
           fixed,
+          key:columnKey,
           disable,
+          show: true,
+          title:title,
         };
       }
     });
@@ -129,7 +131,7 @@ const Container: React.FC<{
   children: React.ReactNode;
 }> = (props) => {
   const value = useContainer(props.initValue);
-  console.log('value', value);
+  // console.log('value', value);
 
   return (
     <TableContext.Provider value={value}>{props.children}</TableContext.Provider>

@@ -49,7 +49,7 @@ const columns = [
 ];
 
 const table = () => {
-  const api = () => {
+  const api = () => {    
     return {
       data: dataSource,
       total: dataSource.length
