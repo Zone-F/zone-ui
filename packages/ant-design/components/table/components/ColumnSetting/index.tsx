@@ -1,8 +1,8 @@
 import { SettingOutlined, AudioOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Divider, Space, Table, TableColumnType } from 'antd';
 import type { ProColumnsType } from 'table-render';
- * @ Modified by: zone98f
- * @ Modified time: 2023-04-11 22:55:20
+import { Popover, Input, Tooltip } from 'antd';
+import classNames from 'classNames'
 import React, { memo, useContext, useEffect, useMemo, useState } from 'react';
 import { TableContext } from '../../Store/Provide';
 import { ColumnsState } from '../../typing';
@@ -98,7 +98,7 @@ function ColumnSetting() {
       onOpenChange={handleOpenChange}
     >
       <Tooltip title="列设置">
-        <SettingOutlined onClick={() => setPopoverShow(!popoverShow)} />
+        <SettingOutlined data-testid='columnSetting-icon' onClick={() => setPopoverShow(!popoverShow)} />
       </Tooltip>
     </Popover>
   )

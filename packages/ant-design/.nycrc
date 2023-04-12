@@ -1,0 +1,8 @@
+{
+  "extension": [".js", ".ts", ".tsx"],
+  "include": ["/**/*.cy.{js,ts,tsx}"],
+  "all": true,
+  "sourceMap": false,
+  "instrument": false,
+  "per-file": true
+}

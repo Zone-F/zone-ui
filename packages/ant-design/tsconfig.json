@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "esModuleInterop":true,
+    "types": ["vitest/globals"]
+  },
+  "include": ["**/*.ts","**/*.cy.tsx"]
+}
