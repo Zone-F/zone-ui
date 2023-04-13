@@ -12,6 +12,7 @@
     "build": "pnpm run build:antd && pnpm run build:elu",
     "build:elu": "pnpm run -C packages/element-ui build",
     "build:antd": "pnpm run -C packages/ant-desigin build",
+    "test:antd": "pnpm run -C packages/ant-desigin test",
     "release": "node scripts/release.ts"
   },
   "keywords": [],
