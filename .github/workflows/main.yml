@@ -9,7 +9,7 @@ jobs:
          version: 6.32.2
       - name: antd-desigin init
         run : |
-          cd packages\ant-design
+          cd ./packages/ant-design
       - name: E2E on Chrome
         uses: actions/checkout@v3
       - name: Test
