@@ -4,7 +4,7 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "esModuleInterop":true,
-    "types": ["vitest/globals"]
+    "types": []
   },
   "include": ["**/*.ts","**/*.cy.tsx"]
 }
