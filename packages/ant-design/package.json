@@ -1,5 +1,5 @@
 {
-  "name": "@zone98f/zone-ui",
+  "name": "@zone98f/zone-antd-ui",
   "version": "1.0.0",
   "main": "dist/zone-ant-design.js",
   "module": "dist/zone-ant-design.es.js",
