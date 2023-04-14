@@ -3,8 +3,8 @@
 </template>
 
 <script>
-// import { ZoneButton } from '@zone-ui/zone-element-ui'
 import { ZoneButton } from '@zone-ui/zone-element-ui'
+// import { ZoneButton } from '@zone-ui/zone-element-ui'
 // import { ZoneButton } from '../../dist/zone-element-ui'
 
 export default {

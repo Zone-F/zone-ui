@@ -10,6 +10,10 @@
     "cypress": "cypress open --component  --browser chrome",
     "test": "cypress run --component --browser chrome"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
