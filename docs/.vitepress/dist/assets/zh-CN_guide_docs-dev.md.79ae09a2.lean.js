@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,N as o}from"./chunks/framework.5e16830a.js";const E=JSON.parse('{"title":"docs 项目","description":"","frontmatter":{},"headers":[],"relativePath":"zh-CN/guide/docs-dev.md"}'),e={name:"zh-CN/guide/docs-dev.md"},t=o("",23),p=[t];function l(c,r,i,D,d,C){return a(),n("div",null,p)}const F=s(e,[["render",l]]);export{E as __pageData,F as default};

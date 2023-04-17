@@ -1,19 +1,14 @@
 {
-  "name": "@zone98f/zone-ui",
+  "name": "@zone98f0/zone-ui",
   "version": "0.0.1",
   "main": "dist/zone-ant-design.cjs.js",
   "module": "dist/zone-ant-design.es.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "docs:dev": "pnpm run -C docs docs:dev",
-    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build && pnpm run -C packages/element-ui docs:build",
-    "dev": "vite",
-    "preview": "vite preview",
-    "build": "pnpm run build:antd && pnpm run build:elu",
-    "build:elu": "pnpm run -C packages/element-ui build",
-    "build:antd": "pnpm run -C packages/ant-desigin build",
-    "test:antd": "pnpm run -C packages/ant-desigin test",
-    "release": "node scripts/release.ts"
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "build": "turbo run build",
+    "deploy": "deploy.sh All pron"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +29,8 @@
     "vite": "^4.1.0"
   },
   "workspaces": [
-    "packages/*"
-  ]
+    "packages/*",
+    "docs"
+  ],
+  "description": ""
 }
