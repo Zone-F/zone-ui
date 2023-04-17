@@ -4,19 +4,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { alias } from "../../scripts";
-import istanbul from 'vite-plugin-istanbul';
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ command, mode }) => {
   return {
-    plugins: [react(),
-      istanbul({
-        include: 'src/*',
-        exclude: ['node_modules'],
-        extension: ['.js', '.ts', '.vue'],
-        requireEnv: false,
-        forceBuildInstrument: false
-      })],
+    plugins: [react()],
     test: {
       globals: true,
       environment: 'jsdom',

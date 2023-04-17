@@ -12,6 +12,10 @@ const items: MenuProps['items'] = [
     label: 'table',
     key: '/xdlk-table',
   },
+  {
+    label: 'autoComplete',
+    key: '/auto-complete',
+  },
 ];
 
 const App: React.FC = (props) => {

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import ButtonDemo from './button/button-demo';
 import XDLKTable from './table/table';
+import AutoComplete from './autoComplete/auto-complete';
 import Menu from "./layouts/menu";
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/xdlk-table",
     element: <XDLKTable />,
+  },
+  {
+    path: "/auto-complete",
+    element: <AutoComplete />,
   }
 ]);
 
