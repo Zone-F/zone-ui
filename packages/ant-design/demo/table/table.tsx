@@ -2,7 +2,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react'
 // import { XDLKTable } from '../../dist/zone-ant-design'
-import { XDLKTable } from '../../components/table'
+import { XDLKTable } from '@zone-ui/zone-antd-ui'
+// import { XDLKTable } from '../../components/table'
 const dataSource = [];
 for (let i = 0; i < 6; i++) {
   dataSource.push({
@@ -49,30 +50,31 @@ const columns = [
 ];
 
 const table = () => {
-  const api = () => {    
+  const api = () => {
     return {
       data: dataSource,
       total: dataSource.length
     };
   };
 
-  return <>
-    <XDLKTable
-      search={{ schema }}
-      request={api}
-      columns={columns}
-      title='最简表格'
-      columnsState={{
-        "persistenceKey": 'test'
-      }}
-      toolbarRender={
-        <>
-          <Button>查看日志</Button>
-          <Button>导出数据</Button>
-        </>
-      }
-    />
-  </>
+  return(
+  <>
+      <XDLKTable
+        style={{width:'500px'}}
+        search={{ schema }}
+        request={api}
+        columns={columns}
+        title='最简表格'
+        columnsState={{
+          "persistenceKey": 'test'
+        }}
+        toolbarRender={
+          <>
+            <Button>导出数据</Button>
+          </>
+        }
+      />
+  </>)
 }
 
 export default table

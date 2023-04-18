@@ -20,7 +20,7 @@
     "prismjs": "^1.28.0",
     "vue": "^3.2.37",
     "@zone-ui/zone-element-ui": "workspace:^",
-    "@zone98f/zone-antd-ui": "workspace:^"
+    "@zone-ui/zone-antd-ui": "workspace:^"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",

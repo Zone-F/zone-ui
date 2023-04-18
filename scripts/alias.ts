@@ -11,6 +11,8 @@ export async function alias (): Promise<Array<Alias>> {
   const dirArr = await fsPromises.readdir(projectPath)
 
   return dirArr.map(packagePath => {
+    console.log('packagePath',packagePath);
+    
     return {
       find:  new RegExp(`^@zone-ui\\/zone-${packagePath}(\\/(dist))?$`),
       replacement: path.join(projectPath, `/${packagePath}/index`)

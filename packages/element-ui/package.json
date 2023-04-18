@@ -1,5 +1,5 @@
 {
-  "name": "@zone98f/zone-element-ui",
+  "name": "@zone-ui/zone-element-ui",
   "version": "1.0.0",
   "description": "二次封装 element-ui",
   "main": "dist/zone-element-ui.cjs.js",
