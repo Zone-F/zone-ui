@@ -18,9 +18,7 @@
     "element-plus": "^2.2.8",
     "less": "^4.1.3",
     "prismjs": "^1.28.0",
-    "vue": "^3.2.37",
-    "@zone-ui/zone-element-ui": "workspace:^",
-    "@zone-ui/zone-antd-ui": "workspace:^"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",

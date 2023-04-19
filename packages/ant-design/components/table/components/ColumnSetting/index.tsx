@@ -56,17 +56,17 @@ const SetBoxList: React.FC<{ searchKey: string }> = ({ searchKey }) => {
   }
 
   return (
-    <>
+    <div role="columnSetting-content">
       {renderColumns?.map(
         column =>
           <SetBoxListItem column={column} key={column.key} updateColumnsMap={updateColumnsMap} />
       )}
-    </>
+    </div>
   )
 }
 // console.log('ColumnSetting Update ---');
 
-function ColumnSetting() {
+function ColumnSetting(): any {
 
   function handleOpenChange(state: boolean) { setPopoverShow(state) }
   const [popoverShow, setPopoverShow] = useState(false);
@@ -98,7 +98,7 @@ function ColumnSetting() {
       onOpenChange={handleOpenChange}
     >
       <Tooltip title="列设置">
-        <SettingOutlined data-testid='columnSetting-icon' onClick={() => setPopoverShow(!popoverShow)} />
+        <SettingOutlined role={"column-setting-icon"} onClick={() => setPopoverShow(!popoverShow)} />
       </Tooltip>
     </Popover>
   )

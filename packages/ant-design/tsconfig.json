@@ -4,7 +4,8 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "esModuleInterop":true,
-    "types": []
+    // "types": ["jest"]
   },
-  "include": ["**/*.ts","**/*.cy.tsx"]
+  "include": ["components"],
+  "exclude": ["node_modules", "dist", "scripts"]
 }
