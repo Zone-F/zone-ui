@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,N as l}from"./chunks/framework.5e16830a.js";const A=JSON.parse('{"title":"开发 element-plus 组件","description":"","frontmatter":{},"headers":[],"relativePath":"zh-CN/guide/antd-dev.md"}'),o={name:"zh-CN/guide/antd-dev.md"},p=l("",16),e=[p];function t(c,r,D,y,i,F){return a(),n("div",null,e)}const d=s(o,[["render",t]]);export{A as __pageData,d as default};

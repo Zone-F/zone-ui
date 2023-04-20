@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.5e16830a.js";const C=JSON.parse('{"title":"开发 ant-design 组件","description":"","frontmatter":{},"headers":[],"relativePath":"zh-CN/guide/antd-dev.md"}'),o={name:"zh-CN/guide/antd-dev.md"},e=l("",14),t=[e];function p(c,r,i,D,d,y){return n(),a("div",null,t)}const A=s(o,[["render",p]]);export{C as __pageData,A as default};

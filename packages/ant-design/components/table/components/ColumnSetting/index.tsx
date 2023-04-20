@@ -7,7 +7,7 @@ import React, { memo, useContext, useEffect, useMemo, useState } from 'react';
 import { TableContext } from '../../Store/Provide';
 import { ColumnsState } from '../../typing';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-const { Search } = Input
+const { Search } = Input  
 
 
 type SetBoxListItem = {
